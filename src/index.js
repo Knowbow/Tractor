@@ -2,6 +2,7 @@ import "./styles/index.scss";
 import canvasExample from "./scripts/canvas";
 import Square from "./scripts/square";
 import { DOMExample } from "./scripts/DOMExample";
+import { DeckRender } from "./scripts/board"
 const currentStateObj = {
   currentExample: null,
   currentEventListeners: [],
@@ -9,6 +10,14 @@ const currentStateObj = {
 
 document.querySelector("#canvas-demo").addEventListener("click", startCanvas);
 document.querySelector("#DOM-demo").addEventListener("click", startDOM);
+document.querySelector("#tractor").addEventListener("click", startTractor);
+
+function startTractor(){
+  unregisterEventListeners();
+  clearDemo();
+  currentStateObj.currentExample = "TRACTORDEMO";
+  DeckRender();
+}
 
 function startDOM() {
   unregisterEventListeners();
@@ -96,6 +105,11 @@ function clearDemo() {
   if (currentStateObj.currentExample === "CANVASDEMO")
     document.body.removeChild(document.querySelector("canvas"));
   if (currentStateObj.currentExample === "DOMDEMO") {
+    [...document.querySelectorAll(".card")].forEach((elem) =>
+      document.body.removeChild(elem)
+    );
+  }
+  if (currentStateObj.currentExample === "TRACTOREMO") {
     [...document.querySelectorAll(".card")].forEach((elem) =>
       document.body.removeChild(elem)
     );
