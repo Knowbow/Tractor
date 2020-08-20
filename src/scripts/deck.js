@@ -8,7 +8,7 @@ class Deck {
     createDeck() {
         let suits = ['clubs', 'diamonds', 'hearts', 'spades'];
         let ranks = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
-        let values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
+        let values = [14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
         let ref = [
             './dist/images/png/ac.png',
             './dist/images/png/2c.png',

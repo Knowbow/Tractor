@@ -11,7 +11,7 @@ $background-color: lighten($main-color, 40%);
 // LAYOUT
 
 body {
-  background-color: $background-color;
+  background-color: #f1e9c6;
   color: $main-color;
   display: flex;
   flex-direction: column;
@@ -43,8 +43,19 @@ body {
   width:50px;
 }
 
-#aiHand1{
+.SideCard{
+  width:75px;
+  height:50px;
+}
+
+.aiFront{
+  transform: rotate(90deg);
   
+}
+
+.HandCard1{
+  height:50px;
+  width:75px;
 }
 
 #playerHand{
