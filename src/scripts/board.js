@@ -398,15 +398,15 @@ export const DeckRender = () => {
     }
 
     var back1 = document.createElement('img');
-    back1.src = './dist/images/png/card_back1.jpg';
+    back1.src = "https://i.imgur.com/1Ys1K06.jpg";
     back1.classList.add("HandCard1", "aiFront");
 
     var back2 = document.createElement('img');
-    back2.src = './dist/images/png/card_back1.jpg';
+    back2.src = "https://i.imgur.com/1Ys1K06.jpg";
     back2.classList.add("SideCard");
 
     var back3 = document.createElement('img');
-    back3.src = './dist/images/png/card_back1.jpg';
+    back3.src = "https://i.imgur.com/1Ys1K06.jpg";
     back3.classList.add("SideCard");
 
     document.getElementById("aiHand1").appendChild(back1);
