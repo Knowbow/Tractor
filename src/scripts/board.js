@@ -1,5 +1,9 @@
 import Player from './players';
 import Deck from './deck';
+import "../../dist/images/png/2c.png";
+import "../../dist/images/png/2d.png";
+import "../../dist/images/png/2h.png";
+import "../../dist/images/png/2s.png";
 
 class Board {
     constructor() {
