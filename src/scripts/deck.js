@@ -10,9 +10,9 @@ class Deck {
         let ranks = ['ace', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'jack', 'queen', 'king'];
         let values = [14, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
         let ref = [
-            './dist/images/png/ac.png',
-            './dist/images/png/2c.png',
-            './dist/images/png/3c.png',
+            './dist/images/PNG/ac.png',
+            './dist/images/PNG/2c.png',
+            './dist/images/PNG/3c.png',
             './dist/images/png/4c.png',
             './dist/images/png/5c.png',
             './dist/images/png/6c.png',
