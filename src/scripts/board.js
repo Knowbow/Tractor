@@ -129,6 +129,7 @@ export const DeckRender = () => {
     function winner(){
         debugger
         gameBoard.token = 0;
+        gameBoard.players[0].active[0].shift();
         var max = gameBoard.players[0].active[0][0].value;
         
         if (gameBoard.players[1].active[0].value > max){
