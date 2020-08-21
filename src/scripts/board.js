@@ -63,9 +63,9 @@ export const DeckRender = () => {
     var textStart = document.createTextNode("Start round!");
     var textPlay = document.createTextNode("Play card");
 
-    button.addEventListener("click", shuffle);
-    buttonStart.addEventListener("click", start);
-    buttonPlay.addEventListener("click", play0);
+    //button.addEventListener("click", shuffle);
+    //buttonStart.addEventListener("click", start);
+    //buttonPlay.addEventListener("click", play0);
     
     // appending text to button 
     button.appendChild(text);
