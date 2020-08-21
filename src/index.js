@@ -94,7 +94,7 @@ function unregisterEventListeners() {
     ] = currentStateObj.currentEventListeners.pop();
     if (selector === "window") {
       window.removeEventListener(event, handler);
-      console.log(handler);
+      //console.log(handler);
     } else {
       document.querySelector(selector).removeEventListener(event, handler);
     }

@@ -9,11 +9,19 @@
     "maintained node versions",
     "not dead"
   ],
+
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
     "webpack:watch": "webpack --watch --config webpack.dev.js",
-    "webpack:build": "webpack --config webpack.prod.js  --optimize-minimize"
+    "webpack:build": "webpack --config webpack.prod.js  --optimize-minimize",
+    "postinstall": "webpack"
   },
+  "engines": {
+
+   "node": "10.13.0", 
+   "npm": "6.4.1" 
+  },
+  
   "author": "mrcjbradley",
   "license": "ISC",
   "dependencies": {},

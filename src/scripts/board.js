@@ -46,7 +46,7 @@ export const DeckRender = () => {
 
     let gameBoard = new Board();
     gameBoard.start('Tony', 'Karen', 'Alice', 'Michael');
-    console.log(gameBoard.players);
+    
 
     
     document.body.classList.add("center");
@@ -98,7 +98,7 @@ export const DeckRender = () => {
             gameBoard.inPlay = [];
         }
 
-    console.log(gameBoard.inPlay.length);
+    
     }
     }, 1000);
     function clear(){
@@ -131,7 +131,7 @@ export const DeckRender = () => {
             gameBoard.token = 3;
         }
         gameBoard.firstSuit=1;
-        debugger
+        
     }
 
 
@@ -215,7 +215,6 @@ export const DeckRender = () => {
         let a = gameBoard.players[0].playerCards.splice(i,1);
         gameBoard.players[0].active.push(a);
 
-        console.log(gameBoard.players[0].playerCards);
         img.addEventListener("click", function () {
 
             unmove(a, i)
