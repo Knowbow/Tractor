@@ -37,15 +37,12 @@
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "url-loader": "^3.0.0",
-     "webpack": "^4.44.1",
+    "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^4.2.2"
   },
-  "devDependencies": {
-    
-   
-  },
+  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mrcjbradley/js_project_skeleton.git"
