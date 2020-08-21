@@ -16,19 +16,7 @@ function startTractor(){
   currentStateObj.currentExample = "TRACTORDEMO";
   DeckRender();
 }
- window.addEventListener("keydown", handleKeyDown);
-  currentStateObj.currentEventListeners.push([
-    "window",
-    "keydown",
-    handleKeyDown,
-  ]);
 
-  window.addEventListener("mousedown", handleMouseDown);
-  currentStateObj.currentEventListeners.push([
-    "window",
-    "mousedown",
-    handleMouseDown,
-  ]);
 
   
 
