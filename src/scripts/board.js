@@ -65,7 +65,6 @@ export const DeckRender = () => {
 
     button.addEventListener("click", shuffle);
     buttonStart.addEventListener("click", start);
-    buttonStart.addEventListener("click", start);
     buttonPlay.addEventListener("click", play0);
     
     // appending text to button 
