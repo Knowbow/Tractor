@@ -1,8 +1,9 @@
 import "./styles/index.scss";
-import "./dist/images/png/2c.png";
-import "./dist/images/png/2d.png";
-import "./dist/images/png/2h.png";
-import "./dist/images/png/2s.png";
+require ("./dist/images/png/2c.png");
+require("./dist/images/png/2d.png");
+require("./dist/images/png/2h.png");
+require("./dist/images/png/2s.png");
+
 
 import { DeckRender } from "./scripts/board";
 
