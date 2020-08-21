@@ -78,7 +78,18 @@ export const DeckRender = () => {
     myDiv.appendChild(buttonPlay);
     window.setInterval(function () {
         /// call your function here
-    
+    if (gameBoard.token == 0){
+        var para = document.createElement("p");
+        var node = document.createTextNode("Your turn!");
+        para.appendChild(node);
+
+        if(document.getElementById("turn").firstChild){
+            document
+              .getElementById("turn")
+              .removeChild(document.getElementById("turn").firstChild);
+        }
+        document.getElementById("turn").appendChild(para); 
+    }
     while(!gameBoard.over && gameBoard.token != 0){
         
         if(gameBoard.token == 1 && gameBoard.inPlay.length<4){
