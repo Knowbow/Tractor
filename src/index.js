@@ -8,7 +8,7 @@ const currentStateObj = {
   currentEventListeners: [],
 };
 
-document.querySelector("#tractor").addEventListener("click", startTractor);
+//document.querySelector("#tractor").addEventListener("click", startTractor);
 
 function startTractor(){
   unregisterEventListeners();
