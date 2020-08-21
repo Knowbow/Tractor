@@ -9,6 +9,7 @@ class Board {
         this.firstSuit = 1;
         this.token = 0;
         this.over = false;
+        this.points = 0;
     }
     start(playerOne, playerTwo, playerThree, playerFour) {
         this.players.push(new Player(playerOne));
@@ -75,9 +76,71 @@ export const DeckRender = () => {
     myDiv.appendChild(button);
     myDiv.appendChild(buttonStart);
     myDiv.appendChild(buttonPlay);
+    window.setInterval(function () {
+        /// call your function here
     
-    
-   
+    while(!gameBoard.over && gameBoard.token != 0){
+        
+        if(gameBoard.token == 1 && gameBoard.inPlay.length<4){
+            aiPlay(1);
+        }
+        if (gameBoard.token == 2 && gameBoard.inPlay.length < 4) {
+            aiPlay(2);
+        }
+        if (gameBoard.token == 3 && gameBoard.inPlay.length < 4) {
+            aiPlay(3);
+            
+        }
+        if(gameBoard.inPlay.length == 4){
+            
+            winner();
+            clear();
+            gameBoard.inPlay = [];
+        }
+
+    console.log(gameBoard.inPlay.length);
+    }
+    }, 1000);
+    function clear(){
+        setTimeout(function () {
+            
+            document.getElementById("aiPlay1").removeChild(document.getElementById("aiPlay1").firstChild);
+            
+            document.getElementById("aiPlay2").removeChild(document.getElementById("aiPlay2").firstChild);
+            
+            document.getElementById("aiPlay3").removeChild(document.getElementById("aiPlay3").firstChild);
+            
+            document.getElementById("active1").removeChild(document.getElementById("active1").firstChild);
+        }, 6000); 
+    }
+
+    function winner(){
+        gameBoard.token = 0;
+        let max = gameBoard.players[0].active[0][0].value;
+        
+        if (gameBoard.players[1].active[0].value > max){
+            max = gameBoard.players[1].active[0].value;
+            gameBoard.token = 1;
+        }
+        if (gameBoard.players[2].active[0].value > max) {
+            max = gameBoard.players[2].active[0].value;
+            gameBoard.token = 2;
+        }
+        if (gameBoard.players[3].active[0].value > max) {
+            max = gameBoard.players[3].active[0].value;
+            gameBoard.token = 3;
+        }
+        gameBoard.firstSuit=1;
+        debugger
+    }
+
+
+    function gameOver(){
+        if (gameBoard.players[0].playerCards.length == 0 && gameBoard.players[1].playerCards.length == 0 && gameBoard.players[2].playerCards.length == 0 && gameBoard.players[3].playerCards.length == 0){
+            gameBoard.over = true;
+        }
+    }
+
     function start(){
         // while(gameBoard.inPlay.length<4){
 
@@ -206,48 +269,87 @@ export const DeckRender = () => {
         spades.sort((a, b) => (a.value > b.value) ? 1 : -1)
         hearts.sort((a, b) => (a.value > b.value) ? 1 : -1)
         clubs.sort((a, b) => (a.value > b.value) ? 1 : -1)
+        gameBoard.token = (gameBoard.token + 1) % 4;
+        
         if (gameBoard.firstSuit == 1){
-            debugger
+            
             let a = gameBoard.players[num].playerCards.shift();
-            debugger
+            
             gameBoard.players[num].active.push(a)
             gameBoard.inPlay.push(a);
             gameBoard.firstSuit = a.suit;
-            debugger
+            
+            var aiImg = document.createElement('img');
+            aiImg.src = a.ref;
+            aiImg.classList.add("HandCard");
+            
+            document.getElementById(`aiPlay${num}`).appendChild(aiImg);
+            
+            
             return;
             
         }
         if (gameBoard.firstSuit == 'clubs'){
-            let a = clubs.pop();
-            gameBoard.players[num].active.push(a)
-            gameBoard.inPlay.push(a);
+            let aa = clubs.pop();
+            gameBoard.players[num].active.push(aa)
+            gameBoard.inPlay.push(aa);
             gameBoard.players[num].playerCards = diamonds.concat(spades).concat(hearts).concat(clubs);
+            var aiImg = document.createElement('img');
+            aiImg.src = aa.ref;
+            aiImg.classList.add("HandCard");
+            
+
+            document.getElementById(`aiPlay${num}`).appendChild(aiImg);
+            
         }
         if (gameBoard.firstSuit == 'diamonds') {
-            let a = diamonds.pop();
-            gameBoard.players[num].active.push(a)
-            gameBoard.inPlay.push(a);
+            let aaa = diamonds.pop();
+            gameBoard.players[num].active.push(aaa)
+            gameBoard.inPlay.push(aaa);
             gameBoard.players[num].playerCards = diamonds.concat(spades).concat(hearts).concat(clubs);
+            var aiImg = document.createElement('img');
+            aiImg.src = aaa.ref;
+            aiImg.classList.add("HandCard");
+
+            document.getElementById(`aiPlay${num}`).appendChild(aiImg);
+          
         }
         if (gameBoard.firstSuit == 'hearts') {
-            let a = hearts.pop();
-            gameBoard.players[num].active.push(a)
-            gameBoard.inPlay.push(a);
+            let aaaa = hearts.pop();
+            gameBoard.players[num].active.push(aaaa)
+            gameBoard.inPlay.push(aaaa);
             gameBoard.players[num].playerCards = diamonds.concat(spades).concat(hearts).concat(clubs);
+            var aiImg = document.createElement('img');
+            aiImg.src = aaaa.ref;
+            aiImg.classList.add("HandCard");
+
+            document.getElementById(`aiPlay${num}`).appendChild(aiImg);
+           
         }
         if (gameBoard.firstSuit == 'spades') {
-            let a = spades.pop();
-            gameBoard.players[num].active.push(a)
-            gameBoard.inPlay.push(a);
+            let aaaaa = spades.pop();
+            gameBoard.players[num].active.push(aaaaa)
+            gameBoard.inPlay.push(aaaaa);
             gameBoard.players[num].playerCards = diamonds.concat(spades).concat(hearts).concat(clubs);
+            var aiImg = document.createElement('img');
+            aiImg.src = aaaaa.ref;
+            aiImg.classList.add("HandCard");
+
+            document.getElementById(`aiPlay${num}`).appendChild(aiImg);
+           
         }
     }
 
     function play0(){
         if(gameBoard.token == 0){
         gameBoard.inPlay.push(gameBoard.players[0].active);
+        gameBoard.token =1;
+        
     }
-    
+        if(gameBoard.firstSuit==1){
+            gameBoard.firstSuit = gameBoard.players[0].active[0][0].suit
+        }
+        
     }
 
     
