@@ -8,8 +8,8 @@ const currentStateObj = {
   currentEventListeners: [],
 };
 
-document.querySelector("#canvas-demo").addEventListener("click", startCanvas);
-document.querySelector("#DOM-demo").addEventListener("click", startDOM);
+// document.querySelector("#canvas-demo").addEventListener("click", startCanvas);
+// document.querySelector("#DOM-demo").addEventListener("click", startDOM);
 document.querySelector("#tractor").addEventListener("click", startTractor);
 
 function startTractor(){
