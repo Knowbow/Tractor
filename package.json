@@ -21,9 +21,7 @@
   },
   "author": "mrcjbradley",
   "license": "ISC",
-  "dependencies": {
-    "webpack-dev-server": "^3.11.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.11.1",
     "@babel/plugin-proposal-optional-chaining": "^7.7.5",

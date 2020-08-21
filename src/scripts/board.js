@@ -131,7 +131,7 @@ export const DeckRender = () => {
             gameBoard.token = 3;
         }
         gameBoard.firstSuit=1;
-        if(1<2){
+        if(1<4){
 
         }
 
