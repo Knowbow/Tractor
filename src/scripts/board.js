@@ -102,7 +102,8 @@ export const DeckRender = () => {
             aiPlay(3);
             
         }
-        if(gameBoard.inPlay.length == 4){
+        debugger
+        if(gameBoard.inPlay.length >= 4){
             
             winner();
             clear();
@@ -111,7 +112,7 @@ export const DeckRender = () => {
 
     
     }
-    }, 1000);
+    }, 3000);
     function clear(){
         setTimeout(function () {
             
@@ -122,12 +123,13 @@ export const DeckRender = () => {
             document.getElementById("aiPlay3").removeChild(document.getElementById("aiPlay3").firstChild);
             
             document.getElementById("active1").removeChild(document.getElementById("active1").firstChild);
-        }, 6000); 
+        }, 3000); 
     }
 
     function winner(){
+        debugger
         gameBoard.token = 0;
-        let max = gameBoard.players[0].active[0][0].value;
+        var max = gameBoard.players[0].active[0][0].value;
         
         if (gameBoard.players[1].active[0].value > max){
             max = gameBoard.players[1].active[0].value;
@@ -142,9 +144,16 @@ export const DeckRender = () => {
             gameBoard.token = 3;
         }
         gameBoard.firstSuit=1;
-        if(1<4){
+        var para = document.createElement("p");
+        var node = document.createTextNode(`Player ${gameBoard.token} won!`);
+        para.appendChild(node);
 
+        if (document.getElementById("winner").firstChild) {
+          document
+            .getElementById("winner")
+            .removeChild(document.getElementById("winner").firstChild);
         }
+        document.getElementById("winner").appendChild(para); 
 
     }
 
