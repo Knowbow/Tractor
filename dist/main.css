@@ -1,4 +1,4 @@
-body{background-color:#ccf;color:blue;display:flex;flex-direction:column}.center{display:flex;align-items:center;justify-content:center}.card{background:white;height:50vh;width:50vw;border-radius:15px;margin-top:15px;box-shadow:3px 3px 5px 5px #009,1px 0px 1px #009}.image-card{background-image:url(images/yoda-stitch.jpg);background-position:center}h2{font-size:3rem}
+body{display:flex;flex-direction:column;background-color:#f1e9c6}.center{display:flex;align-items:center;justify-content:center}#aiHand1{margin-top:50px;padding-bottom:150px}#aiHand2{margin-right:auto}#aiHand3{margin-left:auto;margin-top:-55px}#active1{margin-top:150px}.image-card{background-image:url(images/yoda-stitch.jpg);background-position:center}.HandCard{height:75px;width:50px}.SideCard{width:100px;height:66px}.aiFront{transform:rotate(90deg)}.HandCard1{height:66px;width:100px}#playerHand{display:flex}h2{font-size:3rem}
 
 
 /*# sourceMappingURL=main.css.map*/
