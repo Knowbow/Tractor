@@ -63,9 +63,10 @@ export const DeckRender = () => {
     var textStart = document.createTextNode("Start round!");
     var textPlay = document.createTextNode("Play card");
 
-    //button.addEventListener("click", shuffle);
-    //buttonStart.addEventListener("click", start);
-    //buttonPlay.addEventListener("click", play0);
+    button.addEventListener("click", shuffle);
+    buttonStart.addEventListener("click", start);
+
+    buttonPlay.addEventListener("click", play0);
     
     // appending text to button 
     button.appendChild(text);
@@ -199,10 +200,10 @@ export const DeckRender = () => {
             var img = document.createElement('img');
             img.src = gameBoard.players[0].playerCards[i].ref;
             img.classList.add("HandCard");
-            // img.addEventListener("click", function () {
+            img.addEventListener("click", function () {
 
-            //     move(gameBoard.players[0].playerCards[i], i)
-            // });
+                move(gameBoard.players[0].playerCards[i], i)
+            });
             document.getElementById("playerHand").appendChild(img);
         }
     }
@@ -217,10 +218,10 @@ export const DeckRender = () => {
         let a = gameBoard.players[0].playerCards.splice(i,1);
         gameBoard.players[0].active.push(a);
 
-        // img.addEventListener("click", function () {
+        img.addEventListener("click", function () {
 
-        //     unmove(a, i)
-        // });
+            unmove(a, i)
+        });
         document.getElementById("active1").appendChild(img);
         list.removeChild(list.childNodes[i]);
         render();
@@ -232,10 +233,10 @@ export const DeckRender = () => {
         var img = document.createElement('img');
         img.src = card[0].ref;
         img.classList.add("HandCard");
-        // img.addEventListener("click", function () {
+        img.addEventListener("click", function () {
 
-        //     move(card[0], i)
-        // });
+            move(card[0], i)
+        });
         list.removeChild(list.firstChild);
         gameBoard.players[0].playerCards.push(card[0]);
         gameBoard.players[0].active.splice(0,1);
@@ -362,7 +363,7 @@ export const DeckRender = () => {
             var img = document.createElement('img');
             img.src = gameBoard.players[0].playerCards[i].ref;
             img.classList.add("HandCard");
-            //img.addEventListener("click", shuffle);
+            img.addEventListener("click", shuffle);
             document.getElementById("playerHand").appendChild(img);
         }, 10* i); 
     }
