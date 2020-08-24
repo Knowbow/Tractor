@@ -158,10 +158,18 @@ export const DeckRender = () => {
 
     function winner(){
         debugger
-        gameBoard.token = 0;
-        var max = gameBoard.players[0].active[0][0].value;
+        var max = 0;
+        if (gameBoard.token == 0){
+            max = gameBoard.players[0].active[0][0].value;
+        }
+        if (gameBoard.token >0){
+            max = gameBoard.players[gameBoard.token].active[0].value;
+        }  
         
-        
+        if (gameBoard.players[0].active[0][0].value > max){
+            max = gameBoard.players[0].active[0][0].value;
+        }
+
         if (gameBoard.players[1].active[0].value > max){
             max = gameBoard.players[1].active[0].value;
             gameBoard.token = 1;
@@ -186,6 +194,9 @@ export const DeckRender = () => {
         }
         document.getElementById("winner").appendChild(para); 
         gameBoard.players[0].active.shift();
+        gameBoard.players[1].active.shift();
+        gameBoard.players[2].active.shift();
+        gameBoard.players[3].active.shift();
 
     }
 
