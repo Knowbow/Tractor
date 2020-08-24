@@ -11,18 +11,36 @@ body{
 }
 
 #aiHand1{
-  margin-top:50px;
-  padding-bottom:150px
+  margin-top:180px;
+  margin-right:auto;
+}
+
+#aiHand1 .active{
+    margin-left:50px;
+    position:relative;
+    top:5px;
 }
 
 #aiHand2{
-   margin-right:auto;
+   margin-top:50px;
 }
+
+#aiHand2 .active{
+  position:relative;
+    top:100px;
+    right:75px;
+}
+
 #aiHand3{
-   
-   margin-left:auto;
-    margin-top:-55px
+   margin-top:-70px;
+    margin-left:auto;   
         
+}
+
+#aiHand3 .active{
+  position:relative;
+    right:200px;
+    top:5px;
 }
 
 #active1{

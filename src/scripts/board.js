@@ -11,6 +11,8 @@ class Board {
         this.token = 0;
         this.over = false;
         this.points = 0;
+        this.host=0;
+        
     }
     start(playerOne, playerTwo, playerThree, playerFour) {
         this.players.push(new Player(playerOne));
@@ -77,9 +79,35 @@ export const DeckRender = () => {
     myDiv.appendChild(button);
     myDiv.appendChild(buttonStart);
     myDiv.appendChild(buttonPlay);
+
     window.setInterval(function () {
         /// call your function here
     if (gameBoard.token == 0){
+
+
+
+        if (document.getElementById("host").firstChild) {
+            document
+                .getElementById("host")
+                .removeChild(document.getElementById("host").firstChild);
+        }
+        if (document.getElementById("points").firstChild) {
+            document
+                .getElementById("points")
+                .removeChild(document.getElementById("points").firstChild);
+        }
+
+        var host = document.createElement("p");
+        var nodeHost = document.createTextNode(`Player ${gameBoard.host} is host!`);
+        host.appendChild(nodeHost);
+        document.getElementById("host").appendChild(host);
+
+
+        var point = document.createElement("p");
+        var nodePoint = document.createTextNode(`Total points: ${gameBoard.points}`);
+        point.appendChild(nodePoint);
+        document.getElementById("points").appendChild(point); 
+
         var para = document.createElement("p");
         var node = document.createTextNode("Your turn!");
         para.appendChild(node);
@@ -103,7 +131,7 @@ export const DeckRender = () => {
             aiPlay(3);
             
         }
-        debugger
+        
         if(gameBoard.inPlay.length >= 4){
             
             winner();
@@ -111,17 +139,18 @@ export const DeckRender = () => {
             gameBoard.inPlay = [];
         }
 
+
     
     }
     }, 3000);
     function clear(){
         setTimeout(function () {
             
-            document.getElementById("aiPlay1").removeChild(document.getElementById("aiPlay1").firstChild);
+            document.getElementById("aiHand1").removeChild(document.getElementById("aiHand1").children[1]);
             
-            document.getElementById("aiPlay2").removeChild(document.getElementById("aiPlay2").firstChild);
+            document.getElementById("aiHand2").removeChild(document.getElementById("aiHand2").children[1]);
             
-            document.getElementById("aiPlay3").removeChild(document.getElementById("aiPlay3").firstChild);
+            document.getElementById("aiHand3").removeChild(document.getElementById("aiHand3").children[1]);
             
             document.getElementById("active1").removeChild(document.getElementById("active1").firstChild);
         }, 3000); 
@@ -130,8 +159,8 @@ export const DeckRender = () => {
     function winner(){
         debugger
         gameBoard.token = 0;
-        gameBoard.players[0].active[0].shift();
         var max = gameBoard.players[0].active[0][0].value;
+        
         
         if (gameBoard.players[1].active[0].value > max){
             max = gameBoard.players[1].active[0].value;
@@ -156,6 +185,7 @@ export const DeckRender = () => {
             .removeChild(document.getElementById("winner").firstChild);
         }
         document.getElementById("winner").appendChild(para); 
+        gameBoard.players[0].active.shift();
 
     }
 
@@ -305,9 +335,9 @@ export const DeckRender = () => {
             
             var aiImg = document.createElement('img');
             aiImg.src = a.ref;
-            aiImg.classList.add("HandCard");
+            aiImg.classList.add("HandCard", "active");
             
-            document.getElementById(`aiPlay${num}`).appendChild(aiImg);
+            document.getElementById(`aiHand${num}`).appendChild(aiImg);
             
             
             return;
@@ -320,10 +350,10 @@ export const DeckRender = () => {
             gameBoard.players[num].playerCards = diamonds.concat(spades).concat(hearts).concat(clubs);
             var aiImg = document.createElement('img');
             aiImg.src = aa.ref;
-            aiImg.classList.add("HandCard");
+            aiImg.classList.add("HandCard", "active");
             
 
-            document.getElementById(`aiPlay${num}`).appendChild(aiImg);
+            document.getElementById(`aiHand${num}`).appendChild(aiImg);
             
         }
         if (gameBoard.firstSuit == 'diamonds') {
@@ -333,9 +363,9 @@ export const DeckRender = () => {
             gameBoard.players[num].playerCards = diamonds.concat(spades).concat(hearts).concat(clubs);
             var aiImg = document.createElement('img');
             aiImg.src = aaa.ref;
-            aiImg.classList.add("HandCard");
+            aiImg.classList.add("HandCard", "active");
 
-            document.getElementById(`aiPlay${num}`).appendChild(aiImg);
+            document.getElementById(`aiHand${num}`).appendChild(aiImg);
           
         }
         if (gameBoard.firstSuit == 'hearts') {
@@ -345,9 +375,9 @@ export const DeckRender = () => {
             gameBoard.players[num].playerCards = diamonds.concat(spades).concat(hearts).concat(clubs);
             var aiImg = document.createElement('img');
             aiImg.src = aaaa.ref;
-            aiImg.classList.add("HandCard");
+            aiImg.classList.add("HandCard", "active");
 
-            document.getElementById(`aiPlay${num}`).appendChild(aiImg);
+            document.getElementById(`aiHand${num}`).appendChild(aiImg);
            
         }
         if (gameBoard.firstSuit == 'spades') {
@@ -357,9 +387,9 @@ export const DeckRender = () => {
             gameBoard.players[num].playerCards = diamonds.concat(spades).concat(hearts).concat(clubs);
             var aiImg = document.createElement('img');
             aiImg.src = aaaaa.ref;
-            aiImg.classList.add("HandCard");
+            aiImg.classList.add("HandCard", "active");
 
-            document.getElementById(`aiPlay${num}`).appendChild(aiImg);
+            document.getElementById(`aiHand${num}`).appendChild(aiImg);
            
         }
     }
@@ -395,11 +425,11 @@ export const DeckRender = () => {
 
     var back1 = document.createElement('img');
     back1.src = './dist/images/PNG/card_back1.jpg';
-    back1.classList.add("HandCard1", "aiFront");
+    back1.classList.add("HandCard1");
 
     var back2 = document.createElement('img');
     back2.src = './dist/images/PNG/card_back1.jpg';
-    back2.classList.add("SideCard");
+    back2.classList.add("SideCard", "aiFront");
 
     var back3 = document.createElement('img');
     back3.src = './dist/images/PNG/card_back1.jpg';
