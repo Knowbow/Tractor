@@ -1,6 +1,6 @@
 # Background and Overview
-This is a javascript applicaiton that is an application of the Chinese card playing game "tractor" otherwise also known as "finding friends"/"zhao peng you".
-
+This is a javascript applicaiton that is an application of the Chinese card playing game "tractor" otherwise also known as "finding friends"/"zhao peng you". 
+https://knowbow.github.io/Tractor/ \
 Detailed rule explainations can be found here: https://en.wikipedia.org/wiki/Sheng_ji
 
 # Functionality and MVPs
@@ -34,7 +34,7 @@ Game board
 # Architecture and Technology
  - Deck of Cards API used to simulate drawing from multiple decks of cards and show their image.
 - Dom manipulation to handle game animation.
-
+![GitHub Logo](./tractor-pa.png)
 # Implementation Timeline
 ### Monday
 - implement deck of cards api to draw and shuffle 2 decks of cards

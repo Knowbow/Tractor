@@ -120,17 +120,27 @@ export const DeckRender = () => {
         document.getElementById("turn").appendChild(para); 
     }
     while(!gameBoard.over && gameBoard.token != 0){
+
         
         if(gameBoard.token == 1 && gameBoard.inPlay.length<4){
-            aiPlay(1);
-        }
-        if (gameBoard.token == 2 && gameBoard.inPlay.length < 4) {
-            aiPlay(2);
-        }
-        if (gameBoard.token == 3 && gameBoard.inPlay.length < 4) {
-            aiPlay(3);
+            
+                aiPlay(1);
             
         }
+
+        if (gameBoard.token == 2 && gameBoard.inPlay.length < 4) {
+            
+                aiPlay(2);
+            
+        }
+
+        if (gameBoard.token == 3 && gameBoard.inPlay.length < 4) {
+            
+                aiPlay(3);
+            
+            
+        }
+
         
         if(gameBoard.inPlay.length >= 4){
             
@@ -138,7 +148,7 @@ export const DeckRender = () => {
             clear();
             gameBoard.inPlay = [];
         }
-
+        
 
     
     }
@@ -157,7 +167,7 @@ export const DeckRender = () => {
     }
 
     function winner(){
-        debugger
+        
         var max = 0;
         if (gameBoard.token == 0){
             max = gameBoard.players[0].active[0][0].value;
@@ -193,11 +203,31 @@ export const DeckRender = () => {
             .removeChild(document.getElementById("winner").firstChild);
         }
         document.getElementById("winner").appendChild(para); 
+        
+        var sum = 0;
+        for (let i = 0; i < gameBoard.inPlay.length; i++) {
+            if (gameBoard.inPlay[i].value == 5){
+                sum +=5;
+            }
+            if (gameBoard.inPlay[i].value == 10 || gameBoard.inPlay[i].value == 13) {
+                sum += 10;
+            }
+        }
+        if (gameBoard.players[0].active[0][0].value == 5 ){
+            sum += 5;
+        }
+        if (gameBoard.players[0].active[0][0].value == 10 || gameBoard.players[0].active[0][0].value == 13) {
+            sum += 10;
+        }
+        debugger
+        if(gameBoard.token == 1 || gameBoard.toekn == 3){
+            gameBoard.points += sum;
+        }
+
         gameBoard.players[0].active.shift();
         gameBoard.players[1].active.shift();
         gameBoard.players[2].active.shift();
         gameBoard.players[3].active.shift();
-
     }
 
 
@@ -309,11 +339,13 @@ export const DeckRender = () => {
     }
 
     function aiPlay(num){
+        //setTimeout(function () {
         let hand = gameBoard.players[num].playerCards;
         let diamonds = [];
         let spades = [];
         let hearts = [];
         let clubs = [];
+        var x=0;
         
 
         for (let i = 0; i < gameBoard.players[num].playerCards.length; i++) {
@@ -403,6 +435,7 @@ export const DeckRender = () => {
             document.getElementById(`aiHand${num}`).appendChild(aiImg);
            
         }
+           // }, 1000); 
     }
 
     function play0(){
